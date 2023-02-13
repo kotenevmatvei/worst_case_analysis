@@ -54,7 +54,7 @@ for _ in range(100000):
 
     if pv >= pv_init/2: count += 1
 
-st.write("The number of successful cases per 1000 is ", count/1000)
+st.write("The percentage of successful cases: ", count/1000)
 
 fig, ax = plt.subplots()
 ax.plot(data, 'o', ms=0.3)
