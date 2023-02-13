@@ -4,10 +4,13 @@ import streamlit as st
 
 st.title("The Worst Case Scenario Analysis")
 
-dec_max = st.number_input('Choose the maximum initial relative decline value: ')
+st.write("This simulation lets you determine the percentage of successful (accourding to the task) cases depending on the upper boundary" +
+" for the initial relativ decline value and the distribution of the worst cases within the allowed range")
+
+dec_max = st.number_input('Set the maximum initial relative decline value: ')
 
 dist = st.selectbox(
-    "Choose the distribution of worst case scenarios: ", ['uniform', 'normal']
+    "Set the distribution of worst case scenarios: ", ['uniform', 'normal']
 )
 
 if dist == 'normal':
@@ -21,9 +24,10 @@ count = 0
 data = np.array([])
 
 for _ in range(100000):
-    
+    # Initial portfolio value (%)
     pv = 100
 
+    # Set the worst case scenario according to the distribution
     if dist == 'uniform':
         sc = (np.random.uniform(0,dec_max), np.random.uniform(0,dec_max), np.random.uniform(0,dec_max), np.random.uniform(0,dec_max))
     else:
@@ -37,15 +41,12 @@ for _ in range(100000):
 
     # Portfolio value decrease according to the worst case scenario
     pv = 0.25*pv*(4 - sc[0] - sc[1] - sc[2] - sc[3])
-    #print(pv)
 
     # First year's payments
     for _ in range(3):
         don = 0.025*pv + 0.5*don
-        #print(don)
         pay = bank + don
         pv -= pay
-        #print(pv)
     
     data = np.append(data, pv)
 
@@ -53,9 +54,10 @@ for _ in range(100000):
 
 st.write("The percentage of successful cases: ", count/1000)
 
+# Plot the results
 fig, ax = plt.subplots()
 ax.plot(data, 'o', ms=0.3)
 plt.xlabel("Cases")
-plt.ylabel("Portfolio value after 3 years (%)")
+plt.ylabel("Final portfolio value (%)")
 
 st.pyplot(fig)
