@@ -59,5 +59,7 @@ for i in np.linspace(min,max,numb):
 # Plot the relationship
 fig, ax = plt.subplots()
 ax.plot(np.linspace(min,max,numb), pv_final)
+plt.xlabel("Max initial relative decline")
+plt.ylabel("Final portfolio value")
 fig
 
