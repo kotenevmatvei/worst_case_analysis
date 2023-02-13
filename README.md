@@ -6,10 +6,12 @@ You have multiple investments: some stocks, some bonds, a flat in Berlin and a f
 net asset value makes up 25% or your portfolio. You purchased both flats in January, but 30% of the purchase
 prices have been financed with a bank loan that needs to be repaid in three equal instalments. The bank demands
 the yearly repayments of 10% of the initial value on the flats in December, but they charge you no interest.
-Instead of reinvesting the returns of your investment portfolio, you donate them to a friend who runs a kindergarten. Your friend wants to know how much to expect in donations each year’s December, but it is difficult for
+
+Instead of reinvesting the returns of your investment portfolio, you donate them to a friend who runs a kindergarten. Your friend wants to know how much to expect in donations each year’s December, but it is difficult for
 you to make predictions. You guarantee your friend half of last year’s donation (since this is your first year, you
-assume that you would have made, in total, a donation amounting to 5 % of your portfolio value). In addition,
+assume that you would have made, in total, a donation amounting to 5% of your portfolio value). In addition,
 you commit to donating 2,5% of your beginning-of-year portfolio value each year.
+
 You are not sure whether the payments and donation commitments are too much to service. Therefore, you
 come up with the worst case you can think of: you just purchased your flats in January, but then your stocks
 lose a third of their value, your bonds lose a fifth of their value, and your flats each lose one tenth of their value.
