@@ -4,9 +4,6 @@ import streamlit as st
 
 st.title("The Worst Case Scenario Analysis")
 
-# Set the initial portfolio value
-pv_init = st.number_input('Set the initial portfolio value: ')
-
 dec_max = st.number_input('Choose the maximum initial relative decline value: ')
 
 dist = st.selectbox(
@@ -25,7 +22,7 @@ data = np.array([])
 
 for _ in range(100000):
     
-    pv = pv_init
+    pv = 100
 
     if dist == 'uniform':
         sc = (np.random.uniform(0,dec_max), np.random.uniform(0,dec_max), np.random.uniform(0,dec_max), np.random.uniform(0,dec_max))
@@ -52,11 +49,13 @@ for _ in range(100000):
     
     data = np.append(data, pv)
 
-    if pv >= pv_init/2: count += 1
+    if pv >= 50: count += 1
 
 st.write("The percentage of successful cases: ", count/1000)
 
 fig, ax = plt.subplots()
 ax.plot(data, 'o', ms=0.3)
+plt.xlabel("Cases")
+plt.ylabel("Portfolio value after 3 years (%)")
 
 st.pyplot(fig)
