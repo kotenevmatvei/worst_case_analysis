@@ -10,7 +10,7 @@ st.write("Here you can test the resulting portfolio value after three years (exp
 # Take the boundaries
 min = st.number_input('Choose the start for the maximum initial relative decline value: ')
 max = st.number_input('Choose the end for the maximum initial relative decline value: ')
-numb = int(st.number_input('Choose the number of steps: ',value=0))
+steps = int(st.number_input('Choose the number of steps: ',value=0))
 
 # Set the distribution
 dist = st.selectbox(
@@ -22,10 +22,10 @@ if dist == 'normal':
     scale = st.number_input('Set standard deviation')
 
 # Collect the final portfolio values
-pv_final = []
+success_per = []
 
 # Set the range of interest
-for i in np.linspace(min,max,numb):
+for i in np.linspace(min,max,steps):
     # Counter of successful cases
     count = 0
 
@@ -54,12 +54,12 @@ for i in np.linspace(min,max,numb):
 
         if pv >= 50: count += 1
 
-    pv_final.append(count/10)
+    success_per.append(count/10)
 
 # Plot the relationship
 fig, ax = plt.subplots()
-ax.plot(np.linspace(min,max,numb), pv_final)
+ax.plot(np.linspace(min,max,steps), success_per)
 plt.xlabel("Max initial relative decline")
-plt.ylabel("Final portfolio value")
+plt.ylabel("Percentage of successful cases")
 fig
 
